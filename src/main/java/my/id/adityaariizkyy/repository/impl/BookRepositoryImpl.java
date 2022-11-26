@@ -12,7 +12,7 @@ public class BookRepositoryImpl implements BookRepository {
     // Dummy database
     private static Map <Long, Book>  bookMap;
     public BookRepositoryImpl(){
-        bookMap = new HashMap<>();
+        bookMap = new HashMap();
         Author author1 = new Author();
         author1.setId(1);
         author1.setName("Aditya Rizky Ramadhan");
