@@ -4,10 +4,18 @@ import my.id.adityaariizkyy.domain.Book;
 import my.id.adityaariizkyy.dto.BookDetailDTO;
 import my.id.adityaariizkyy.repository.BookRepository;
 import my.id.adityaariizkyy.service.BookService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
+@Service("bookService")
 public class BookServiceImpl implements BookService {
 
     private BookRepository bookRepository;
+
+    @Autowired
+    public BookServiceImpl(BookRepository bookRepository){
+        this.bookRepository = bookRepository;
+    }
 
     public BookRepository getBookRepository() {
         return bookRepository;
@@ -31,6 +39,7 @@ public class BookServiceImpl implements BookService {
         return bookDetailDTO;
     }
 
+    @Override
     public int size(){
         return bookRepository.size();
     }

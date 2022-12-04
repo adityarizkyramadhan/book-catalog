@@ -9,25 +9,17 @@ import java.util.Map;
 
 public class BookRepositoryImpl implements BookRepository {
 
-    // Dummy database
-    private static Map <Long, Book>  bookMap;
-    public BookRepositoryImpl(){
-        bookMap = new HashMap();
-        Author author1 = new Author();
-        author1.setId(1);
-        author1.setName("Aditya Rizky Ramadhan");
-        author1.setAddress("Sidoarjo, Jawa Timur");
-        Book book1 = new Book(author1);
-        book1.setId(1L);
-        book1.setTitle("Buku Dummy Satu");
-        book1.setDescription("Ini buku dummy satu");
-        Book book2 = new Book(author1);
-        book2.setId(2L);
-        book2.setTitle("Buku Dummy Dua");
-        book2.setDescription("Ini buku dummy dua");
-        bookMap.put(1L, book1);
-        bookMap.put(2L, book2);
+    public Map<Long, Book> getBookMap() {
+        return bookMap;
     }
+
+    public void setBookMap(Map<Long, Book> bookMap) {
+        this.bookMap = bookMap;
+    }
+
+    // Dummy database
+    private Map <Long, Book>  bookMap;
+    public BookRepositoryImpl(){}
     @Override
     public Book findById(long id) {
         return bookMap.get(id);
